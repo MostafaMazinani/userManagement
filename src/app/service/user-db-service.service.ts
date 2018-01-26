@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import {Injectable} from '@angular/core';
 import {Iuser} from '../model/iuser';
+=======
+import { Injectable } from '@angular/core';
+>>>>>>> df2494a... add project's structure--file and directory
 
 @Injectable()
 export class UserDbServiceService {
 
+<<<<<<< HEAD
   constructor() {
   }
 
@@ -120,3 +125,8 @@ export class UserDbServiceService {
 
 
 
+=======
+  constructor() { }
+
+}
+>>>>>>> df2494a... add project's structure--file and directory
