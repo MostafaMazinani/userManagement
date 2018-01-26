@@ -16,4 +16,12 @@ export class LoginServiceService {
     return this.userService.findUserNameandCode(username, +code);
   }
 
+  /**
+   * get all user
+   * @returns {Iuser[]}
+   */
+  getAllUser() {
+    return this.userService.getAllUsers();
+  }
+
 }

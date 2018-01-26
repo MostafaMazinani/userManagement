@@ -1081,8 +1081,26 @@ userDb: Iuser[] =
     {id: 999, name: 'Jaydon', family: 'NOEL', role: 'User', row: '2', age: 74, code: 1134272, hiredate: '20/15/2363', owner: '858368'},
     {id: 1000, name: 'Antoine', family: 'VANG', role: 'Manager', row: '3', age: 56, code: 858368, hiredate: '20/15/2364', owner: '1'}
   ];
-}
 
+  /**
+   * reterive all user from Db
+   */
+  getAllUser() {
+    return this.userDb;
+  }
+
+  /**
+   * find a user by code
+   * @param {number} code
+   * @returns {Iuser | undefined}
+   */
+  findByCode(code: number) {
+    return this.userDb.find(
+      (u) => {
+        return u.code === code;
+      }
+    )
+  }
 }
 
 
