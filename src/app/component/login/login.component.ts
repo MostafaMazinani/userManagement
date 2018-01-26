@@ -22,12 +22,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  // authorize() {
-  //   if (this.loginService.findUserByNameandCode(this.username, this.password) != null) {
-  //      this.router.navigate(['user']);
-  //   } else {
-  //      this.errorMessage = 'username and password id wrong!';
-  //   }
-  // }
+  authorize() {
+    console.log('userName: '+ this.username);
+    console.log('password: '+ this.password);
+    if (this.loginService.findUserByNameandCode(this.username, this.password) != null) {
+       this.router.navigate(['user']);
+    } else {
+       this.errorMessage = 'username and password id wrong!';
+    }
+  }
 
 }
