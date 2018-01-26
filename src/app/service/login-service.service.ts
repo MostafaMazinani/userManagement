@@ -1,8 +1,18 @@
 import { Injectable } from '@angular/core';
+import {UserServiceService} from './user-service.service';
 
 @Injectable()
 export class LoginServiceService {
 
-  constructor() { }
+  constructor(private userService: UserServiceService) { }
 
+  /**
+   * find a user by Name and code
+   * @param {string} username
+   * @param {string} password
+   * return User or null
+   */
+  findUserByNameandCode(username: string, code: string) {
+    return this.userService.findUserNameandCode(username, +code);
+  }
 }

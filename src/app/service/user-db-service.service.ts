@@ -82,6 +82,41 @@ export class UserDbServiceService {
       }
     );
   }
+
+  private initialUserDb() {
+    this.userDb = [
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+      { id: 0, name: '', family: '', role: '', row: '', age: 0, code: 0, hiredate: '', owner: '' },
+    ];
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
