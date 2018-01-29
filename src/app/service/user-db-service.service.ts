@@ -72,7 +72,7 @@ export class UserDbServiceService {
   findByNameandCode(name:  string, code: number) {
     return this.userDb.find(
       (u) => {
-        return u.name === name && u.code === code;
+        return u.name === name && u.code === +code;
       }
     );
   }
@@ -1099,7 +1099,14 @@ userDb: Iuser[] =
       (u) => {
         return u.code === code;
       }
-    )
+    );
+  }
+
+  findByOwnerCode(code: number) {
+    return this.userDb.filter(
+      (u) => {
+        return +u.owner == code;
+      });
   }
 }
 

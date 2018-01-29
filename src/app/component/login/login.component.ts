@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginServiceService} from '../../service/login-service.service';
+import {LoginService} from '../../service/login-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
 
   constructor(
-    private loginService: LoginServiceService,
+    private loginService: LoginService,
     private activeRouter: ActivatedRoute,
     private router: Router
   ) {}

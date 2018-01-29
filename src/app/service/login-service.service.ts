@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {UserServiceService} from './user-service.service';
 
 @Injectable()
-export class LoginServiceService {
+export class LoginService {
 
   constructor(private userService: UserServiceService) { }
 
@@ -22,6 +22,14 @@ export class LoginServiceService {
    */
   getAllUser() {
     return this.userService.getAllUsers();
+  }
+
+  findUserByNameAndCode2(username: string, code: string) {
+    return new Promise<Boolean>(
+      (resolve, reject) => {
+          this.findUserByNameandCode(username, code) != null ? resolve(true) : reject(false);
+      }
+    );
   }
 
 }

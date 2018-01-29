@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {UserDbServiceService} from './user-db-service.service';
+import {Iuser} from '../model/iuser';
 
 @Injectable()
 export class UserServiceService {
@@ -31,5 +32,25 @@ export class UserServiceService {
    */
   getAllUsers() {
     return this.userDbService.getAllUser();
+  }
+
+  /**
+   * find users by his owner(ownercode)
+   * @param code
+   */
+  findUserChild(code: number) {
+    return this.userDbService.findByOwnerCode(code);
+  }
+
+  /**
+   * find a user by ID
+   * @param {number} id
+   */
+  findUserById(id: number) {
+    return this.userDbService.findById(id);
+  }
+
+  update(myUser: Iuser) {
+    this.userDbService.update(myUser);
   }
 }

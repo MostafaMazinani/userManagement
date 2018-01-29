@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Iuser} from '../../model/iuser';
 import {UserServiceService} from '../../service/user-service.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-component',
@@ -22,7 +23,7 @@ export class UserComponentComponent implements OnInit {
     owner: '',
   };
 
-  constructor(private userService: UserServiceService) { }
+  constructor(private userService: UserServiceService, private router: Router) { }
 
   ngOnInit() {
     this.iusers = this.userService.getAllUsers();
@@ -30,7 +31,7 @@ export class UserComponentComponent implements OnInit {
 
   onRowClick(name: string, code: number) {
     this.iuser = this.userService.findUserNameandCode(name, code);
-    alert(this.iuser.name);
+    this.router.navigate(['useredit'], {queryParams: {username: name, code : code}});
   }
 
 }
