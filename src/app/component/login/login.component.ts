@@ -3,7 +3,7 @@ import { LoginService } from '../../service/login-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   userNameSubscribe = new Subject();
   @ViewChild('loginform') form: NgForm;
   times = ['minutes', 'hours', 'day', 'weeks', 'months', 'year'];
-
+  formGroup: FormGroup;
 
   constructor(private loginService: LoginService,
               private activeRouter: ActivatedRoute,
@@ -35,12 +35,18 @@ export class LoginComponent implements OnInit {
         }, 100);
       }
     );
+    this.formGroup = new FormGroup({
+      'username': new FormControl(null),
+      'password': new FormControl(null),
+      'remember': new FormControl(null),
+      'time': new FormControl()
 
+    });
   }
 
   onSubmitLoginForm() {
-    console.log(this.form.value['username'], this.form.value['password']);
-    if (this.loginService.findUserByNameandCode(this.form.value['username'], this.form.value['password']) != null) {
+    console.log(this.formGroup.value['username'], this.formGroup.value['password']);
+    if (this.loginService.findUserByNameandCode(this.formGroup.value.username, this.formGroup.value.password) != null) {
       this.userLogin.next();
       this.router.navigate(['user']);
     } else {

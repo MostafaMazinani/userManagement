@@ -16,6 +16,7 @@ import { HomeComponent } from './component/home/home.component';
 import { AuthGuard} from './auth-guard.service';
 import { UserEditComponent } from './component/user-edit/user-edit.component';
 import { EditCheckCandeactivate } from './service/edit-check-candeactivate.service';
+import { CreateUserComponent } from './component/create-user/create-user.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EditCheckCandeactivate } from './service/edit-check-candeactivate.servi
     UserComponentComponent,
     NotFound404ErrorComponent,
     HomeComponent,
-    UserEditComponent
+    UserEditComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
