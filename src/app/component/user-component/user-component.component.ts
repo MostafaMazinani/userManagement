@@ -31,7 +31,10 @@ export class UserComponentComponent implements OnInit {
 
   onRowClick(name: string, code: number) {
     this.iuser = this.userService.findUserNameandCode(name, code);
-    this.router.navigate(['useredit'], {queryParams: {username: name, code : code}});
+    this.router.navigate(
+      ['useredit'],
+      {queryParams: {username: name, code : code}}
+      );
   }
 
 }

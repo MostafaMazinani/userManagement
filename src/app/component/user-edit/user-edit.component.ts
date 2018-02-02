@@ -7,6 +7,7 @@ import {EditCandeactivate, EditCheckCandeactivate} from '../../service/edit-chec
 import {Subscription} from 'rxjs/Subscription';
 import 'rxjs/Rx';
 import {Observer} from 'rxjs/Observer';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-user-edit',
@@ -57,12 +58,20 @@ export class UserEditComponent implements OnInit, EditCandeactivate, OnDestroy {
     this.topUser = this.userService.findUserNameandCode(this.username, this.code);
     this.userChild = this.userService.findUserChild(this.code);
 
-    // const counter = Observable.interval(1000);
-    // this.subscrition = counter.subscribe(
-    //   (value: any) => {
-    //     console.log(value);
-    //   });
+    const temp = Observable
+      .of(this.userChild)
+      .do(x => {
+          console.log(x.length);
+        }
+      );
 
+
+    temp.subscribe((x: Iuser[]) => {
+      x.forEach(value => {
+          console.log(value.name);
+        }
+      );
+    });
 
     const customObservable = Observable.create(
       (observer: Observer<number>) => {
