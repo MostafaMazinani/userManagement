@@ -50,7 +50,19 @@ export class UserServiceService {
     return this.userDbService.findById(id);
   }
 
+  /**
+   * update a user
+   * @param {Iuser} myUser
+   */
   update(myUser: Iuser) {
     this.userDbService.update(myUser);
   }
+
+  /**
+   * find a user with his name and family
+   */
+  findByNameandFamily(name: string, family: string) {
+    return this.userDbService.findByNameandFamily(name, family);
+  }
+
 }

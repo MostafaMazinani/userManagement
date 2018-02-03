@@ -8,12 +8,14 @@ import {AuthGuard} from './auth-guard.service';
 import {HomeComponent} from './component/home/home.component';
 import {UserEditComponent} from './component/user-edit/user-edit.component';
 import {EditCheckCandeactivate} from './service/edit-check-candeactivate.service';
+import {CreateUserComponent} from './component/create-user/create-user.component';
 
 const router: Routes = [
   { path: '', component: AppComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent},
   { path: 'user', canActivate: [AuthGuard], component: UserComponentComponent},
+  { path: 'newuser', canActivate: [AuthGuard], component: CreateUserComponent},
   { path: 'useredit', canActivate: [AuthGuard], canDeactivate: [EditCheckCandeactivate] , component: UserEditComponent},
   { path: 'not-found', component: NotFound404ErrorComponent},
   { path: '**', redirectTo: 'not-found'}

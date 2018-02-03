@@ -1,0 +1,143 @@
+<form [formGroup]="formGroup"
+      (ngSubmit)="submitForm()"
+      style="padding: 80px; width: 700px;">
+
+  <div [formGroupName]="'userInfo'">
+    <!--firstName-->
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="name">First Name</label>
+      <div class="col-sm-10">
+        <input type="text"
+               class="form-control"
+               id="name"
+               placeholder="Enter First Name"
+               [formControlName]="'name'"
+        >
+        <span style='color: red'
+              *ngIf="!formGroup.get('userInfo.name').valid && formGroup.get('userInfo.name').touched">
+        first name is required.
+      </span>
+      </div>
+    </div>
+    <!--lastName-->
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="family">Last Family</label>
+      <div class="col-sm-10">
+        <input type="text"
+               class="form-control"
+               id="family"
+               placeholder="Enter Last Name"
+               [formControlName]="'family'"
+        >
+      </div>
+      <span style='color: red'
+            *ngIf="!formGroup.get('userInfo.family').valid && formGroup.get('userInfo.family').touched">
+      last name is required.
+    </span>
+    </div>
+  </div>
+
+  <div [formGroupName]="'jobInfo'">
+    <!--// TODO fixed-->
+    <!--role-->
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="role">Role </label>
+      <div class="col-sm-10">
+        <input type="text"
+               class="form-control"
+               id="role"
+               placeholder="Enter role"
+               [formControlName]="'role'"
+        >
+      </div>
+      <span style='color: red' *ngIf="!formGroup.get('jobInfo.role').valid && formGroup.get('jobInfo.role').touched">
+      role is required
+    </span>
+    </div>
+    <!--row-->
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="row">Row</label>
+      <div class="col-sm-10">
+        <input type="number"
+               class="form-control"
+               id="row"
+               placeholder="Enter row"
+               [formControlName]="'row'"
+               disabled="disabled"
+        >
+      </div>
+      <span style='color: red' *ngIf="!formGroup.get('jobInfo.row').valid && formGroup.get('jobInfo.row').touched">
+        row is required
+      </span>
+    </div>
+    <!--code-->
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="code">Code</label>
+      <div class="col-sm-10">
+        <input type="text"
+               class="form-control"
+               id="code"
+               placeholder="Enter code"
+               [formControlName]="'code'"
+        >
+
+      </div>
+      <span style='color: red' *ngIf="!formGroup.get('jobInfo.code').valid && formGroup.get('jobInfo.code').touched">
+        code is required
+      </span>
+    </div>
+    <!--hiredate-->
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="hireDate">HireDate</label>
+      <div class="col-sm-10">
+        <input type="date"
+               class="form-control"
+               id="hireDate"
+               placeholder="Enter HireDate"
+               [formControlName]="'hireDate'"
+        >
+      </div>
+      <span style='color: red'
+            *ngIf="!formGroup.get('jobInfo.hireDate').valid && formGroup.get('jobInfo.hireDate').touched">
+      hireDate is required
+    </span>
+    </div>
+    <!--owner-->
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="owner">Owner</label>
+      <div class="col-sm-10">
+        <input type="text"
+               class="form-control"
+               id="owner"
+               [formControlName]="'owner'"
+               disabled="disabled"
+        >
+      </div>
+      <span style='color: red' *ngIf="!formGroup.get('jobInfo.owner').valid && formGroup.get('jobInfo.owner').touched">
+      owner is required
+    </span>
+    </div>
+  </div>
+    <div [formArrayName]="'files'">
+      <div *ngFor="let c of formGroup.get('files').controls; let i = index">
+
+
+        <label class="control-label col-sm-3">Upload File {{+i+1}}</label>
+        <div class="col-sm-10">
+          <input type="file"
+                 class="form-control"
+                 [formControlName]="i">
+        </div>
+
+
+      </div>
+      <button type="button"
+              class="btn btn-success"
+              (click)="onClickAddFiles()"
+              style="margin-left: 450px;"
+      >+</button>
+
+    </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

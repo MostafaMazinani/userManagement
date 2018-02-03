@@ -1105,8 +1105,16 @@ userDb: Iuser[] =
   findByOwnerCode(code: number) {
     return this.userDb.filter(
       (u) => {
-        return +u.owner == code;
+        return +u.owner === code;
       });
+  }
+
+  findByNameandFamily(name: string, family: string) {
+    return this.userDb.find(
+      (u) => {
+        return u.name.trim().toLowerCase() === name.trim().toLowerCase() &&
+          u.family.trim().toLowerCase() === family.trim().toLowerCase();
+    });
   }
 }
 
